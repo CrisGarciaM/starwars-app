@@ -22,10 +22,10 @@ const Characters = (props) => {
   return (
     <div>
       <ParentContainer>
-        {characters.results.map((singleCharacter, index) => {
+        {characters.results.map((singleCharacter) => {
           return (
             <CharacterCard
-              key={index}
+              key={singleCharacter.id}
               id={singleCharacter.id}
               name={singleCharacter.name}
               height={singleCharacter.height}

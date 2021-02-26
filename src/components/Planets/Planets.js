@@ -20,10 +20,10 @@ const Planets = (props) => {
   return (
     <div>
       <ParentContainer>
-        {planets.results.map((singlePlanet, index) => {
+        {planets.results.map((singlePlanet) => {
           return (
             <PlanetsCard
-              key={index}
+              key={singlePlanet.id}
               id={singlePlanet.id}
               name={singlePlanet.name}
               terrain={singlePlanet.terrain}
