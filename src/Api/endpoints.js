@@ -4,5 +4,5 @@ export const mainEndPoints = {
   characters: BASE_URL + 'people/',
   species: BASE_URL + 'species/',
   planets: BASE_URL + 'planets/',
-  startShips: BASE_URL + 'starships/',
+  starShips: BASE_URL + 'starships/',
 };
