@@ -12,9 +12,10 @@ const CharacterCard = (props) => {
     eyeColor,
     birthYear,
     gender,
+    id,
   } = props;
   return (
-    <Card className="single-card">
+    <Card className="single-card" id={id}>
       <Card.Content>
         <Card.Header>Name: {name}</Card.Header>
         <Card.Meta>
