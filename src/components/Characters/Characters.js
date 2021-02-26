@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import ParentContainer from '../ParentContainer/ParentContainer';
 import CharacterCard from './CharactersCard/CharactersCard';
 import { fetchCharacters } from '../../redux/characters/characters-actions';
 import { mainEndPoints } from '../../Api/endpoints';
 import PaginationContainer from '../Pagination/Pagination';
-import './Characters.scss';
+import '../../styles/commonStyles.scss';
 
 const Characters = (props) => {
   const { fetchCharacters, charactersData } = props;
@@ -20,7 +21,7 @@ const Characters = (props) => {
 
   return (
     <div>
-      <div className="characters-container">
+      <ParentContainer>
         {characters.results.map((singleCharacter, index) => {
           return (
             <CharacterCard
@@ -37,7 +38,7 @@ const Characters = (props) => {
             />
           );
         })}
-      </div>
+      </ParentContainer>
       <div>
         <PaginationContainer />
       </div>
