@@ -19,6 +19,11 @@ const CharactersReducer = (state = initialState, action) => {
     case FETCH_CHARACTERS_REQUEST:
       return {
         ...state,
+        characters: {
+          count: 0,
+          next: null,
+          results: [],
+        },
         loading: true,
       };
     case FETCH_CHARACTERS_SUCCESS:

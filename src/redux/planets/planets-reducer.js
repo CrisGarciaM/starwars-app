@@ -19,6 +19,11 @@ const PlanetsReducer = (state = initialState, action) => {
     case FETCH_PLANETS_REQUEST:
       return {
         ...state,
+        planets: {
+          count: 0,
+          next: null,
+          results: [],
+        },
         loading: true,
       };
     case FETCH_PLANETS_SUCCESS:
