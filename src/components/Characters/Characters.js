@@ -8,18 +8,15 @@ import './Characters.scss';
 
 const Characters = (props) => {
   const { fetchCharacters, charactersData } = props;
-  const { characters } = charactersData;
+  const { characters, loading } = charactersData;
 
   useEffect(() => {
     fetchCharacters(mainEndPoints.characters);
   }, [fetchCharacters]);
 
-  if (charactersData.loading) {
+  if (loading) {
     return <div className="w-100 text-center">Loading...</div>;
   }
-
-  console.log(characters);
-  // console.log(charactersData.characters.results);
 
   return (
     <div>
