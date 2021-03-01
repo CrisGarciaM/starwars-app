@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ParentContainer from '../ParentContainer/ParentContainer';
 import StarshipCard from './StarshipsCard/StarshipsCard';
+import Heading from '../Heading/Heading';
 import PaginationContainer from '../Pagination/PaginationContainer';
 import { fetchStarships } from '../../redux/starships/starships-action';
 import { mainEndPoints } from '../../Api/endpoints';
@@ -27,6 +28,7 @@ const Starships = (props) => {
 
   return (
     <div>
+      <Heading heading="Star Wars Starships" />
       <ParentContainer>
         {starships.results.map((singleStarship) => {
           return (

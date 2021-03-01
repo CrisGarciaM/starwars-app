@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ParentContainer from '../ParentContainer/ParentContainer';
 import SpeciesCard from './SpeciesCard/SpeciesCard';
 import PaginationContainer from '../Pagination/PaginationContainer';
+import Heading from '../Heading/Heading';
 import { fetchSpecies } from '../../redux/species/species-actions';
 import { mainEndPoints } from '../../Api/endpoints';
 import '../../styles/commonStyles.scss';
@@ -27,6 +28,7 @@ const Species = (props) => {
 
   return (
     <div>
+      <Heading heading="Star Wars Species" />
       <ParentContainer>
         {species.results.map((singleSpecie) => {
           return (

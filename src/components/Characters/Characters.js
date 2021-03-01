@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ParentContainer from '../ParentContainer/ParentContainer';
 import CharacterCard from './CharactersCard/CharactersCard';
+import Heading from '../Heading/Heading';
 import { fetchCharacters } from '../../redux/characters/characters-actions';
 import { mainEndPoints } from '../../Api/endpoints';
 import '../../styles/commonStyles.scss';
@@ -27,6 +28,7 @@ const Characters = (props) => {
 
   return (
     <div>
+      <Heading heading="Star Wars Characters" />
       <ParentContainer>
         {characters.results.map((singleCharacter) => {
           return (

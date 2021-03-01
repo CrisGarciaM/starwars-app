@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PlanetsCard from './PlanetsCard/PlanetsCard';
 import ParentContainer from '../ParentContainer/ParentContainer';
+import Heading from '../Heading/Heading';
 import PaginationContainer from '../Pagination/PaginationContainer';
 import { fetchPlanets } from '../../redux/planets/planets-actions';
 import { mainEndPoints } from '../../Api/endpoints';
@@ -26,6 +27,7 @@ const Planets = (props) => {
 
   return (
     <div>
+      <Heading heading="Star Wars Planets" />
       <ParentContainer>
         {planets.results.map((singlePlanet) => {
           return (
