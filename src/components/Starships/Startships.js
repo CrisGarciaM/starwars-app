@@ -50,7 +50,7 @@ const Starships = (props) => {
           );
         })}
       </ParentContainer>
-      <div>
+      <div className="pagination-container">
         <PaginationContainer
           activePage={page}
           totalPages={4}
