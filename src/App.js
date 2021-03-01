@@ -4,6 +4,7 @@ import Characters from './components/Characters/Characters';
 import OptionsInput from './components/OptionsInput/OptionsInput';
 import StarShips from './components/Starships/Startships';
 import './App.scss';
+import Species from './components/Species/Species';
 
 const App = () => {
   const [search, setSearch] = useState('');
@@ -21,6 +22,8 @@ const App = () => {
         <Characters />
       ) : search === 'starships' ? (
         <StarShips />
+      ) : search === 'species' ? (
+        <Species />
       ) : (
         <Characters />
       )}
