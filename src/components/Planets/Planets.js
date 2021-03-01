@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PlanetsCard from './PlanetsCard/PlanetsCard';
 import ParentContainer from '../ParentContainer/ParentContainer';
+import PaginationContainer from '../Pagination/PaginationContainer';
 import { fetchPlanets } from '../../redux/planets/planets-actions';
 import { mainEndPoints } from '../../Api/endpoints';
 
 const Planets = (props) => {
   const { fetchPlanets, planetsData } = props;
   const { planets, loading } = planetsData;
+  const [page, setPage] = useState('1');
 
   useEffect(() => {
     fetchPlanets(mainEndPoints.planets);
@@ -15,6 +17,11 @@ const Planets = (props) => {
 
   if (loading) {
     return <div className="w-100 text-center">Loading...</div>;
+  }
+
+  function handleClick(newState) {
+    setPage(newState);
+    fetchPlanets(mainEndPoints.planets + `?page=${newState}`);
   }
 
   return (
@@ -38,6 +45,14 @@ const Planets = (props) => {
           );
         })}
       </ParentContainer>
+      <div>
+        <PaginationContainer
+          activePage={page}
+          totalPages={6}
+          ellipsisItem={null}
+          onClick={handleClick}
+        />
+      </div>
     </div>
   );
 };

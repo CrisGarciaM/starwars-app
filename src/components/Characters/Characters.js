@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ParentContainer from '../ParentContainer/ParentContainer';
 import CharacterCard from './CharactersCard/CharactersCard';
 import { fetchCharacters } from '../../redux/characters/characters-actions';
 import { mainEndPoints } from '../../Api/endpoints';
-import PaginationContainer from '../Pagination/Pagination';
 import '../../styles/commonStyles.scss';
+import PaginationContainer from '../Pagination/PaginationContainer';
 
 const Characters = (props) => {
   const { fetchCharacters, charactersData } = props;
+  const [page, setPage] = useState('1');
   const { characters, loading } = charactersData;
 
   useEffect(() => {
@@ -17,6 +18,11 @@ const Characters = (props) => {
 
   if (loading) {
     return <div className="w-100 text-center">Loading...</div>;
+  }
+
+  function handleClick(newState) {
+    setPage(newState);
+    fetchCharacters(mainEndPoints.characters + `?page=${newState}`);
   }
 
   return (
@@ -40,7 +46,12 @@ const Characters = (props) => {
         })}
       </ParentContainer>
       <div>
-        <PaginationContainer />
+        <PaginationContainer
+          activePage={page}
+          totalPages={9}
+          ellipsisItem={null}
+          onClick={handleClick}
+        />
       </div>
     </div>
   );

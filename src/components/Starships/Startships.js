@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ParentContainer from '../ParentContainer/ParentContainer';
 import StarshipCard from './StarshipsCard/StarshipsCard';
+import PaginationContainer from '../Pagination/PaginationContainer';
 import { fetchStarships } from '../../redux/starships/starships-action';
 import { mainEndPoints } from '../../Api/endpoints';
 import '../../styles/commonStyles.scss';
@@ -9,6 +10,7 @@ import '../../styles/commonStyles.scss';
 const Starships = (props) => {
   const { fetchStarships, starshipsData } = props;
   const { starships, loading } = starshipsData;
+  const [page, setPage] = useState('1');
 
   useEffect(() => {
     fetchStarships(mainEndPoints.starShips);
@@ -16,6 +18,11 @@ const Starships = (props) => {
 
   if (loading) {
     return <div className="w-100 text-center">Loading...</div>;
+  }
+
+  function handleClick(newState) {
+    setPage(newState);
+    fetchStarships(mainEndPoints.starShips + `?page=${newState}`);
   }
 
   return (
@@ -43,7 +50,14 @@ const Starships = (props) => {
           );
         })}
       </ParentContainer>
-      <div></div>
+      <div>
+        <PaginationContainer
+          activePage={page}
+          totalPages={4}
+          ellipsisItem={null}
+          onClick={handleClick}
+        />
+      </div>
     </div>
   );
 };

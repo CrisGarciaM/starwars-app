@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import ParentContainer from '../ParentContainer/ParentContainer';
 import SpeciesCard from './SpeciesCard/SpeciesCard';
+import PaginationContainer from '../Pagination/PaginationContainer';
 import { fetchSpecies } from '../../redux/species/species-actions';
 import { mainEndPoints } from '../../Api/endpoints';
-import PaginationContainer from '../Pagination/Pagination';
 import '../../styles/commonStyles.scss';
 
 const Species = (props) => {
   const { fetchSpecies, speciesData } = props;
   const { species, loading } = speciesData;
+  const [page, setPage] = useState('1');
 
   useEffect(() => {
     fetchSpecies(mainEndPoints.species);
@@ -17,6 +18,11 @@ const Species = (props) => {
 
   if (loading) {
     return <div className="w-100 text-center">Loading...</div>;
+  }
+
+  function handleClick(newState) {
+    setPage(newState);
+    fetchSpecies(mainEndPoints.species + `?page=${newState}`);
   }
 
   return (
@@ -41,7 +47,12 @@ const Species = (props) => {
         })}
       </ParentContainer>
       <div>
-        <PaginationContainer />
+        <PaginationContainer
+          activePage={page}
+          totalPages={4}
+          ellipsisItem={null}
+          onClick={handleClick}
+        />
       </div>
     </div>
   );
