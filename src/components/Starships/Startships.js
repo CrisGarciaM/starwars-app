@@ -25,6 +25,7 @@ const Starships = (props) => {
           return (
             <StarshipCard
               key={singleStarship.id}
+              model={singleStarship.model}
               id={singleStarship.id}
               name={singleStarship.name}
               manufacturer={singleStarship.manufacturer}
