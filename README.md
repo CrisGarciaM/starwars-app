@@ -1,8 +1,8 @@
-<h1 align="center">Welcome to Star Wars App 👋</h1>
+<h1 align="center">Welcome to the Star Wars App 👋</h1>
 <p>
 </p>
 
-> The Star Wars App allows the user to search information about Star Wars characters, planets, starships and species. Each search result provides the user with 10 information cards to begin. The user can then navigate through pages to find all available results.
+> The Star Wars App allows the user to search information about Star Wars characters, planets, starships and species. Each search result provides the user with 10 information cards. The user can then navigate through pages to find all available results.
 
 ## Install and run :rocket:
 
