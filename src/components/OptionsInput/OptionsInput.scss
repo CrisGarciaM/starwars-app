@@ -1,10 +1,19 @@
 .input-container {
   display: flex;
   justify-content: center;
+  padding: 10px;
+  border: 1px solid #ffde06;
+  border-top: none;
+  background-color: black;
 }
 
 .inputs {
   display: flex;
   width: 40%;
   flex-direction: column;
+  color: white;
+
+  select {
+    background-color: #ffde06;
+  }
 }
