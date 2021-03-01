@@ -14,7 +14,7 @@ const OptionsInput = (props) => {
           <option value="people">Characters</option>
           <option value="planets">Planets</option>
           <option value="starships">Starships</option>
-          <option value="race">Raze</option>
+          <option value="species">Species</option>
         </select>
       </div>
     </div>
